@@ -3,7 +3,7 @@
 //* Copyright Contributors to the COBOL Programming Course
 //* SPDX-License-Identifier: CC-BY-4.0
 //***************************************************/
-//COBRUN  EXEC IGYWCL
+//COBRUN  EXEC IGYWCL   
 //COBOL.SYSIN  DD DSN=&SYSUID..CBL(CBL0001),DISP=SHR
 //LKED.SYSLMOD DD DSN=&SYSUID..LOAD(CBL0001),DISP=SHR
 //***************************************************/
