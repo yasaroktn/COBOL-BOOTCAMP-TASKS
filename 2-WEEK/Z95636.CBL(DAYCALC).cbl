@@ -1,3 +1,4 @@
+      *Bu bölüm programın kimlik bilgilerinin belirtildiği bölümdür.
        IDENTIFICATION DIVISION.
        PROGRAM-ID. DAYCALC.
        AUTHOR. Yasar Okten.
@@ -44,8 +45,19 @@
        H100-OPEN-FILE.
            OPEN INPUT  DATE-REC.
            OPEN OUTPUT PRT-LINE.
+           PERFORM H110-OPEN-FILE-CONTROL.
            READ DATE-REC.
        H100-END. EXIT.
+       H110-OPEN-FILE-CONTROL.
+           IF (ST-DATE-REC NOT = 97) AND (ST-DATE-REC NOT = 0)
+            DISPLAY 'OUTPUT FILE NOT OPEN.'
+            PERFORM H999-CLOSE-FILE
+           END-IF.
+           IF (ST-PRINT-LINE NOT = 97) AND (ST-PRINT-LINE NOT = 0)
+              DISPLAY 'INPUT FILE NOT OPEN.'
+              PERFORM H999-CLOSE-FILE
+           END-IF.
+       H110-END. EXIT.
        H200-PROCESS.
            COMPUTE BDAY-INT = FUNCTION INTEGER-OF-DATE(DATE-REC-BDAY).
            COMPUTE TODAY-INT = FUNCTION INTEGER-OF-DATE(DATE-REC-TODAY).
@@ -62,5 +74,5 @@
        H999-CLOSE-FILE.
            CLOSE DATE-REC.
            CLOSE PRT-LINE.
-       H999-END. EXIT.
            STOP RUN.
+       H999-END. EXIT.
