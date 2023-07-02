@@ -4,7 +4,7 @@
 //* SPDX-License-Identifier: CC-BY-4.0
 //***************************************************/
 //DELET100 EXEC PGM=IDCAMS
-//SYSPRINT DD SYSOUT=*
+//SYSPRINT DD SYSOUT=* 
 //SYSIN    DD *
   DELETE Z95636.QSAM.OUT NONVSAM
   IF LASTCC LE 08 THEN SET MAXCC = 00
